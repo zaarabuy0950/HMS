@@ -1,0 +1,71 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+
+  <div class="row">
+        <div class="col-md">
+          <div class="card  card-body" >
+              <hr>
+              <hr>
+            <h5></h5>
+
+              <h4>
+              Patient Dashboard:
+                  </h4>
+          </div>
+        </div>
+      <div class="col-md">
+         <div class="card card-body">
+            <h5>Total Patient</h5>
+            <hr>
+            <h1 style="text-align: center;padding: 10px">{{total_patient}}</h1>
+         </div>
+    </div>
+  </div>
+<br>
+
+   <div class="row">
+            <div class="col">
+                <div class="card card-body">
+                    <form method="get">
+                        {{myFilter.form}}
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+   </div>
+<br>
+ <div class="row">
+    <div class="col-md">
+        <h5>Patient Details:</h5>
+        <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" href="{% url 'create_patient' %}" > Create Patient </a>
+            <table class="table table-sm">
+              <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Admit Date </th>
+                <th>Status</th>
+                <th>Email</th>
+                <th>Update</th>
+                <th>Remove</th>
+                <th>Action</th>
+              </tr>
+                {% for i in patient %}
+                <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.age}}</td>
+                    <td>{{i.admitDate }}</td>
+                    <td>{{i.status}}</td>
+                    <td>{{i.email}}</td>
+                    <td><a class="btn btn-sm btn-info" href="{% url 'updatePatient' i.id %}">Update</a></td>
+                    <td><a class="btn btn-sm btn-danger" href="{% url 'deletePatient' i.id %}">Delete</a></td>
+                    <td><a class="btn btn-warning" href="{% url 'view_patient' i.id %}">View</a></td>
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+ </div>
+
+{% endblock %}

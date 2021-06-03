@@ -1,0 +1,23 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+<br>
+<div class="container-fluid">
+    <div class="col-md-5">
+        <div class="card card-body" style="background-color:green ;color:orange">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ formset.management_form }}
+                {% for form in formset %}
+                {{form}}
+                <br>
+                {% endfor %}
+                <input type="submit" name="Confirm" >
+                <a class= "btn btn-warning" style="float:left; height:27px" href="{% url 'patient' %}">Cancel</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

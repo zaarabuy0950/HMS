@@ -1,0 +1,61 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+<br>
+
+  <div class="row">
+        <div class="col-md">
+          <div class="card  card-body" >
+            <h5>Doctor:</h5>
+           <hr>
+              {{doctor.name}}
+<!--            <a class="btn btn-outline-info btn-sm btn-block" href="{% url 'doctor_settings' %}">Update Doctor</a>-->
+          </div>
+        </div>
+      <div class="col-md">
+          <div class="card card-body">
+              <hr>
+              <h5>Contact Information</h5>
+              <hr>
+              <p>Name:{{doctor.email}}</p>
+              <p>Phone:{{doctor.mobile}}</p>
+          </div>
+      </div>
+      <div class="col-md">
+         <div class="card card-body">
+<!--            <h5>Appointment Date</h5>-->
+            <hr>
+            <h1 style="text-align: center;padding: 10px"></h1>
+         </div>
+
+    </div>
+  </div>
+<br>
+<br>
+ <div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-sm">
+              <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Mobile</th>
+                <th>Department</th>
+                <th>Email</th>
+              </tr>
+                <tr>
+                    <td>{{doctor.name}}</td>
+                    <td>{{doctor.address}}</td>
+                    <td>{{doctor.mobile}}</td>
+                    <td>{{doctor.department}}</td>
+                    <td>{{doctor.email}}</td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+ </div>
+<br>
+<div>
+    <a style="margin-left:600px" class="btn btn-info" href="{% url 'doctor' %}">Back</a>
+</div>
+{% endblock %}

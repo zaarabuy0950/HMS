@@ -1,0 +1,71 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+<br>
+
+  <div class="row">
+        <div class="col-md">
+          <div class="card  card-body" >
+            <h5>Patient:</h5>
+           <hr>
+              <h5>{{patient.name}}</h5>
+          </div>
+        </div>
+      <div class="col-md">
+          <div class="card card-body">
+              <hr>
+              <h5>Contact Information</h5>
+              <hr>
+              <p>Email:{{patient.email}}</p>
+              <p>Phone:{{patient.mobile}}</p>
+          </div>
+      </div>
+      <div class="col-md">
+         <div class="card card-body">
+            <h5>Appointment Date</h5>
+            <hr>
+             {% for i in appointment %}
+                <div class="card-body">
+                    <h5 class="card-title">{{i.appointDate}}</h5>
+                </div>
+                {% endfor %}
+            <h1 style="text-align: center;padding: 10px"></h1>
+         </div>
+    </div>
+  </div>
+<br>
+<br>
+ <div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-sm">
+              <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>BloodGroup</th>
+                <th>AssignedDoctor</th>
+                <th>Symptoms</th>
+                <th>AdmitDate</th>
+                <th>Appoint</th>
+
+<!--                <th>Update</th>-->
+              </tr>
+                <tr>
+                    <td>{{patient.name}}</td>
+                    <td>{{patient.address}}</td>
+                    <td>{{patient.bloodGroup}}</td>
+                    <td>{{patient.assignedDoctor}}</td>
+                    <td>{{patient.symptoms}}</td>
+                    <td>{{patient.admitDate}}</td>
+                    <td><a  class="btn btn-info" href="{% url 'appoint' patient.id %}">Appoint</a></td>
+<!--                    <td><a class="btn btn-sm btn-info" href="">Update</a></td>-->
+                </tr>
+            </table>
+        </div>
+    </div>
+ </div>
+<br>
+
+<div>
+    <a class="btn btn-info"  style="margin-left:600px"  href="{% url 'patient' %}">Back</a>
+</div>
+{% endblock %}

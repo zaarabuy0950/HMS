@@ -1,0 +1,15 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<div class="container" style="background-color:orange; width:300px; height:200px"  >
+<p>Are you Sure want to delete "{{doctor}}" ?</p>
+<form method="POST" action="{% url 'deletedoctor' doctor.id %}">
+  {% csrf_token %}
+  <a class="btn btn-outline-info btn-sm btn-block"  href="{% url 'doctor' %}">Cancel</a>
+  <input class="btn btn-outline-info btn-sm btn-block"  style=" color:black; height:33px;" type="submit" name="Confirm">
+</form>
+</div>
+
+{% endblock %}

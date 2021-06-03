@@ -1,0 +1,71 @@
+ {% extends 'accounts/main.html' %}
+ {% block content %}
+ <br>
+ <div class="row">
+        <div class="col-md">
+          <div class="card  card-body" >
+            <h5>Doctor List:</h5>
+           <hr>
+              <ul>
+                  <li>Dr.Anil Chudhary</li>
+                  <li>Dr.Sanu Karki</li>
+                  <li>Dr.Labin Kafle</li>
+                  <li>Dr.Sharmila Shah</li>
+              </ul>
+          </div>
+        </div>
+      <div class="col-md">
+          <div class="card card-body">
+            <h5>Appointment </h5>
+            <hr>
+            <h1 style="text-align: center;padding: 10px">Total: {{  total_appointment }}</h1>
+          </div>
+
+       </div>
+  </div>
+     <div class="row">
+            <div class="col">
+                <div class="card card-body">
+                    <form method="get">
+                        {{myFilter.form}}
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+     </div>
+
+   <div class="row">
+       <div class="col-md">
+            <h5>Doctor Details:</h5>
+          <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" href="" >Create Doctor</a>
+            <table class="table table-sm">
+                <tr>
+                    <th>Name</th>
+                    <th>Address  </th>
+                    <th>Mobile</th>
+                     <th>Department </th>
+                     <th>Email </th>
+                    <th>Update</th>
+                    <th>Delete</th>
+<!--                    <th>Status </th>-->
+                    <th>View</th>
+                </tr>
+                {% for i in doctor %}
+                <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.mobile}}</td>
+                    <td>{{i.department}}</td>
+                    <td>{{i.email}}</td>
+                    <td><a class="btn btn-warning" href="{% url 'updateDoctor' i.id %}">Update</a></td>
+                    <td><a class="btn btn-warning" href="{% url 'deletedoctor' i.id %}">Delete</a></td>
+<!--                    <td><a class="btn btn-warning" href="">Status</a></td>-->
+                    <td><a class="btn btn-warning" href="{% url 'view_doctor' i.id %}">View</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+           </div>
+        </div>
+ </div>
+ {% endblock %}
