@@ -8,6 +8,7 @@ DEBUG = True
 # HOST = '127.0.0.1'
 # PORT = '5432'
 
+
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'zaarabuyghimire@gmail.com'

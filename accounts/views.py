@@ -275,6 +275,7 @@ def delete_doctor(request, pk):
     context = {'doctor': doctor}
     return render(request, 'accounts/delete_forms/delete_doctor.html', context)
 
+
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
 def appoint(request, pk):
